@@ -1,0 +1,16 @@
+.button {
+    display: block;
+    text-decoration: none;
+    background-color: $orange-main;
+    color: $white;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $orange-hover;
+    }
+}

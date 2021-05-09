@@ -1,0 +1,8 @@
+.page__body {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content;
+    align-content: start;
+    min-height: 100%;
+    font-family: 'Montserrat', sans-serif; // по тз надо иметь три семейства, как хоть понять из какого семейства шрифт
+    font-style: normal;
+}

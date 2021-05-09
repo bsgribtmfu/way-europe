@@ -1,0 +1,146 @@
+.header {
+    position: relative;
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    color: $dark-gray;
+    min-height: 99px;
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 0 21px;
+
+    @media (max-width: $tablet-width) {
+        min-height: 50px;
+    }
+
+    @media (max-width: $mobile-width) {
+        padding: 0 16px;
+    }
+}
+
+.header__logo {
+    display: block;
+    background-image: url('../../img/icons/logo.svg');
+    background-repeat: no-repeat;
+    width: 57px;
+    height: 22px;
+
+    @media (max-width: $tablet-width) {
+        &--hidden {
+            display: none;
+        }
+    }
+}
+
+.header__navigation {
+    margin-left: auto;
+
+    @media (max-width: $tablet-width) {
+        display: none;
+        margin-top: 151px;
+        margin-left: initial;
+        width: 100%;
+        height: 100vh;
+    }
+}
+
+.header__toggle {
+    display: none;
+
+    @media (max-width: $tablet-width) {
+        border: none;
+        outline: none;
+        width: 72px;
+        height: 50px;
+        position: absolute;
+        display: block;
+        right: 0;
+        top: 0;
+    }
+
+    @media (max-width: $mobile-width) {
+        width: 50px;
+    }
+
+    &--closed { // menu closed
+        background-color: $orange-main;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-image: url('../../img/icons/toggle.svg');
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            width: 23px;
+            height: 14px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    &--opened { //menu opened
+        background-color: transparent;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-color: rgba(20, 21, 23, 0.2);
+            width: 1px;
+            height: 25px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            background-color: rgba(20, 21, 23, 0.2);
+            width: 1px;
+            height: 25px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+}
+
+.header__contacts {
+    display: flex;
+    align-items: center;
+    margin-left: 57px;
+
+    &:hover .header__phone-icon {
+        stroke: $orange-main;
+    }
+
+   &:hover .header__phone-link {
+        color: $orange-main;
+    }
+
+    @media (max-width: $tablet-width) {
+        display: none;
+    }
+}
+
+.header__link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header__phone-icon {
+    width: 17px;
+    height: 24px;
+    fill: none;
+    stroke: $dark-gray;
+}
+
+.header__phone-link {
+    margin-left: 11px;
+    font-size: 18px;
+    line-height: 32px;
+    color: inherit;
+}

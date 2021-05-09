@@ -1,0 +1,89 @@
+.tours {
+    max-width: 1170px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 21px;
+    position: relative;
+    margin-top: 80px;
+
+    &::before {
+        content: none; // из-за этого фонового изображения появляется гориз. прокрутка
+        position: absolute;
+        background-image: url(../../img/tours/map.svg);
+        background-repeat: no-repeat;
+        width: 1444px;
+        height: 1089px;
+        z-index: -1;
+        left: 50%;
+        transform: translate(-50%);
+    }
+    
+    @media (max-width: $tablet-width) {
+        background-image: none;
+        margin-top: 80px;
+
+        &::before {
+            content: none;
+        }
+    }
+
+    @media (max-width: $mobile-width) {
+        padding: 0 16px;
+        margin-top: 23px;
+    }
+}
+
+.tours__wrapper-navigation {
+    overflow-x: hidden;
+    max-width: 100px;
+}
+
+.tours__navigation {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid $border-gray;
+    width: 100px;
+    position: relative;
+
+    @media (max-width: $tablet-width) {
+        margin-top: 10px;
+    }
+
+    @media (max-width: $mobile-width) {
+        margin-top: 0;
+    }
+}
+
+.tours__item {
+    &:not(:last-child) {
+        margin-right: 99px;
+    }
+}
+
+.tours__navigation-link {
+    display: block;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.415px;
+    color: $border-gray;
+    text-decoration: none;
+    padding: 15px 0;
+}
+
+.tours__countries {
+    margin: 0;
+    margin-top: 80px;
+
+    @media (max-width: $tablet-width) {
+        margin-top: 35px;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
+    }
+
+    @media (max-width: $mobile-width) {
+        margin-top: 24px;
+    }
+}
