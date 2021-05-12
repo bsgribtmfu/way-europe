@@ -43,7 +43,7 @@
 .footer__travels {
     width: 33.3%;
     border-right: 1px solid $footer-gray;
-    
+
     @media (max-width: $tablet-width) {
         width: 54.4%;
     }
@@ -97,7 +97,7 @@
     }
 }
 
-.footer__wrapper {
+.footer__content {
     display: flex;
 
     @media (max-width: $mobile-width) {
@@ -138,6 +138,10 @@
 }
 
 .footer__link {
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
     text-decoration: none;
     color: $half-gray;
     font-weight: normal;
@@ -146,9 +150,14 @@
 }
 
 .footer__contact-icon {
-    fill: $footer-gray;
+    stroke: $footer-gray;
+    fill: none;
     margin-right: 15px;
     flex-shrink: 0;
+
+    &--gray {
+        fill: $footer-gray;
+    }
 }
 
 .footer__contact {

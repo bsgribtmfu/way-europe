@@ -3,6 +3,15 @@
     grid-template-rows: min-content 1fr min-content;
     align-content: start;
     min-height: 100%;
-    font-family: 'Montserrat', sans-serif; // по тз надо иметь три семейства, как хоть понять из какого семейства шрифт
+    font-family: 'Montserrat', 'Arial', sans-serif;
     font-style: normal;
+    background-image: url('../../img/tours/map.svg');
+    background-repeat: no-repeat;
+    background-size: 1444px 1089px;
+    background-position: center 2687px;
+    overflow-x: hidden;
+
+    @media (max-width: $tablet-width) {
+        background-image: none;
+    }
 }

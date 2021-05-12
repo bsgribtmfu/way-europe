@@ -1,0 +1,39 @@
+.close-button {
+    outline: none;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    top: 20px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+
+    &:hover {
+        background-color: $footer-gray;
+    }
+
+    &::after {
+        content: "";
+        width: 1px;
+        height: 26px;
+        background-color: $dark-gray;
+        opacity: 20%;
+        position: absolute;
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    &::before {
+        content: "";
+        width: 1px;
+        height: 26px;
+        background-color: $dark-gray;
+        opacity: 20%;
+        position: absolute;
+        top: 0;
+        transform: rotate(-45deg);
+    }
+}

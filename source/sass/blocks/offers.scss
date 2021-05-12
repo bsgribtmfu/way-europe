@@ -107,9 +107,9 @@
     margin-top: 55px;
     font-weight: normal;
     font-size: 16px;
-    line-height: 170%;
+    line-height: 27px;
     color: $violet;
-    
+
     @media (max-width: $tablet-width) {
         text-align: center;
         margin-top: 22px;
@@ -128,7 +128,7 @@
     }
 }
 
-.offers__slogan {
+.offers__subtitle {
     margin: 0;
     font-weight: 500;
     font-size: 22px;
@@ -145,7 +145,8 @@
 }
 
 .offers__phone {
-    padding-left: 30px;
+    display: flex;
+    align-items: center;
     position: relative;
     text-decoration: none;
     color: $black;
@@ -154,26 +155,19 @@
     line-height: 32px;
 
 
-    &::before {
-        content: "";
-        position: absolute;
-        background-image: url('../../img/icons/phone.svg');
-        background-repeat: no-repeat;
-        width: 17px;
-        height: 24px;
-        left: 0;
-        top: 0;
-    }
-
     @media (max-width: $tablet-width) {
         color: $orange-main;
         margin-top: 10px;
         text-decoration: underline 1px;
         background-image: none;
-        padding-left: initial;
+    }
+}
 
-        &::before {
-            content: none;
-        }
+.offers__phone-icon {
+    stroke:#FE7865;
+    margin-right: 15px;
+
+    @media (max-width: $tablet-width) {
+        display: none;
     }
 }
