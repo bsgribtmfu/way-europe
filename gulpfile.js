@@ -7,9 +7,7 @@ const autoprefixer = require("autoprefixer");
 const csso = require("postcss-csso");
 const rename = require("gulp-rename");
 const htmlmin = require("gulp-htmlmin");
-// const uglify = require("gulp-uglify");
 const imagemin = require("gulp-imagemin");
-// const webp = require("gulp-webp");
 const svgstore = require("gulp-svgstore");
 const del = require("del");
 const { plugin } = require("postcss");
@@ -46,7 +44,6 @@ const html = () => {
 
 const scripts = () => {
   return gulp.src("source/js/main.js")
-    // .pipe(uglify())
     .pipe(rename("main.min.js"))
     .pipe(gulp.dest("build/js"))
     .pipe(sync.stream());
@@ -67,16 +64,6 @@ const images = () => {
 }
 
 exports.images = images;
-
-// WebP
-
-// const createWebp = () => {
-//   return gulp.src("source/img/**/*.{jpg,png}")
-//     .pipe(webp({quality: 90}))
-//     .pipe(gulp.dest("build/img"))
-// }
-
-// exports.createWebp = createWebp;
 
 // Sprite
 

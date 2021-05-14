@@ -21,6 +21,11 @@
 .tours__wrapper-navigation {
     max-width: 900px;
     border-bottom: 1px solid $border-gray;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
 }
 
 .tours__navigation {

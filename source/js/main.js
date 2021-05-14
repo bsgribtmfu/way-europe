@@ -15,7 +15,7 @@ const placesLinks = document.querySelectorAll('.places__link');
 const tours = document.querySelector('.tours__item');
 const navItems = document.querySelectorAll('.tours__navigation-link');
 const countries = document.querySelectorAll('.countries__item');
-
+const messageAlert = document.querySelector('.form__alert');
 
 buttonsCards.forEach(element => {
     element.addEventListener('click', function() {
@@ -33,9 +33,11 @@ phonesValue.forEach(element => {
         if (element.value === '+7 ') {
             element.value = '';
             element.placeholder = element.getAttribute('placeholder');
+            phoneValue.style.borderColor = 'rgba(44,46,63,0.3)';
+            messageAlert.style.display = 'none';
         }
     })
-    element.addEventListener('keyup', function(e) {
+    element.addEventListener('keyup', function() {
         element.value = element.value.replace(/[а-яА-Яa-zA-Z]/g, '');
 
         if (element.value.length < 3) {
@@ -47,12 +49,13 @@ phonesValue.forEach(element => {
 forms.forEach(element => {
     element.addEventListener('submit', function(e) {
         e.preventDefault();
-        if (phoneValue === 10) {
-            console.log('Данные не верны!');
-        }
-        else {
+        if (phoneValue.value.length === 13) {
             element.reset();
             modalNotification.style.display = "block";
+        }
+        else {
+            phoneValue.style.borderColor = "#FE7865";
+            messageAlert.style.display = 'block';
         }
     })
 })
@@ -89,37 +92,45 @@ headerToggle.addEventListener("click", function() {
     }
 })
 
-const events = (element) => {
-    element.addEventListener("click", function(e) {
-        e.preventDefault();
-        let country = element.dataset.country;
+const clearActive = () => {
+    countries.forEach(item => {
+        if (item.classList.contains('countries__item--active')) {
+            item.classList.remove('countries__item--active');
+        }
+    });
 
-        navItems.forEach(item => {
-            if (item.classList.contains('tours__navigation-link--active')) {
-                item.classList.remove('tours__navigation-link--active')
-            }
-
-            if (item.dataset.country === country) {
-                item.classList.add('tours__navigation-link--active');
-            }
-        });
-
-        countries.forEach(item => {
-            if (item.classList.contains('countries__item--active')) {
-                item.classList.remove('countries__item--active');
-            }
-
-            if (item.dataset.country === country) {
-                item.classList.add('countries__item--active');
-            }
-        });
+    navItems.forEach(item => {
+        if (item.classList.contains('tours__navigation-link--active')) {
+            item.classList.remove('tours__navigation-link--active');
+        }
     });
 }
 
+const addActive = (currentDataset) => {
+    countries.forEach(item => {
+        if (currentDataset === item.dataset.country) {
+            item.classList.add('countries__item--active');
+        }
+    })
+    navItems.forEach(item => {
+        if (currentDataset === item.dataset.country) {
+            item.classList.add('tours__navigation-link--active');
+        }
+    })
+}
+
+
 placesLinks.forEach(element => {
-    events(element);
-});
+    element.addEventListener("click", function() {
+        clearActive();
+        addActive(element.dataset.country);
+    })
+})
 
 navItems.forEach(element => {
-    events(element);
-});
+    element.addEventListener("click", function(e) {
+        e.preventDefault();
+        clearActive();
+        addActive(element.dataset.country);
+    })
+})
