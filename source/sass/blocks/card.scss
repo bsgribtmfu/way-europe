@@ -1,0 +1,163 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    max-width: 370px;
+    min-width: 288px;
+    border: 1px solid $border-gray;
+    border-radius: 6px;
+
+    @media (max-width: $tablet-width) {
+        border-radius: 6px 6px 0 0;
+        max-width: 288px;
+    }
+
+    @media (max-width: $mobile-width) {
+        max-width: 370px;
+        min-width: initial;
+    }
+}
+
+.card:hover {
+    border-color: $orange-main;
+
+    .card__header {
+        color: $orange-main;
+    }
+
+    .card__list::before {
+        background-color: $orange-main;
+    }
+
+    .card__icon {
+        fill: $orange-main;
+    }
+}
+
+.card__wrapper {
+    padding: 40px 29px 0 29px;
+
+    @media (max-width: $tablet-width) {
+        padding: 30px 19px 0 19px;
+    }
+}
+
+.card__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-top: 64px;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        background-color: $border-gray;
+        top: -28px;
+        width: 100%;
+        height: 1px;
+    }
+
+    @media (max-width: $tablet-width) {
+        margin-top: 32px;
+    }
+}
+
+.card__item {
+    display: flex;
+    align-items: baseline;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    color: $dark-violet;
+
+    &:not(:last-child) {
+        margin-bottom: 14px;
+    }
+
+    @media (max-width: $tablet-width) {
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+    }
+}
+
+.card__icon {
+    fill: $black;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+.card__header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    color: $gray;
+    line-height: 34px;
+
+    @media (max-width: $tablet-width) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.card__title {
+    margin: 0;
+    flex-wrap: wrap;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+    width: 75%;
+
+    @media (max-width: $tablet-width) {
+        width: initial;
+        font-size: 24px;
+    }
+}
+
+.card__price {
+    font-weight: bold;
+    line-height: 34px;
+    font-size: 25px;
+
+    @media (max-width: $tablet-width) {
+        margin-left: initial;
+        margin-top: 10px;
+    }
+}
+
+.card__subtitle {
+    margin: 0;
+    margin-top: 45px;
+    position: relative;
+    color: $dark-violet;
+
+    @media (max-width: $tablet-width) {
+        margin-top: 12px;
+        line-height: 24px;
+        text-align: center;
+    }
+}
+
+.card__text {
+    margin: 0;
+    line-height: 32px;
+}
+
+.card__button {
+    padding: 30px 20px;
+    margin-top: 54px;
+    text-align: center;
+    margin: auto 30px 30px 30px;
+
+    @media (max-width: $tablet-width) {
+        padding: 19px 20px;
+        font-size: 10px;
+        line-height: 12px;
+        margin: auto 0 0 0;
+    }
+
+    @media (max-width: $mobile-width) {
+        margin-top: 30px;
+    }
+}
